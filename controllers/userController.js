@@ -40,7 +40,7 @@ exports.loginUser = async (req, res) => {
     try{
         //check if user exists
         //check if a user exists
-        const [user] = await db.execute('SELECT name, email FROM users WHERE email = ?', [email]);
+        const [user] = await db.execute('SELECT * FROM users WHERE email = ?', [email]);
         if(user.length === 0){
             return res.status(400).json({ message: 'The user does not exist' });
         }
