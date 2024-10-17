@@ -1,0 +1,12 @@
+label, input{
+    display: block;
+}
+
+div {
+    margin: 10px;
+    padding: 10px;
+}
+
+#message {
+    text-align: center;
+}
