@@ -1,8 +1,9 @@
 ///import necessary packages
+const db = require('./config/db');
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const MySQLStore = require('connect-mysql2')(session);
+const MySQLStore = require('express-mysql-session')(session);
 const dotenv = require('dotenv');
 
 //initialize env management
@@ -12,16 +13,12 @@ dotenv.config();
 const app = express();
 
 //configure middleware
+
 app.use(bodyParser.json()); //use json
 app.use(bodyParser.urlencoded({ extended: true })); //capture form data
 
 //configure session store
-const sessionStore = new MySQLStore({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
-});
+const sessionStore = new MySQLStore({}, db);
 
 //configure session middleware
 app.use(session({
@@ -36,6 +33,7 @@ app.use(session({
 
 //routes
 app.use('/telemedicine/api/users', require('./routes/userRoutes'));
+
 
 const PORT = process.env.PORT || 5500;
 
