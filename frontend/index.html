@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>USER MANAGEMENT</title>
+            <link rel="stylesheet" href="css/styles.css">
+        </head>
+        <body>
+            <div>
+                <h1>User Management</h1>
+                <div>
+                    <h3>Register</h3>
+                    <form id="registerForm">
+                        <label for="regName">Name:</label>
+                        <input type="text" id="regName" required>
+                        <label for="regEmail">Email:</label>
+                        <input type="email" id="regEmail" required>
+                        <label for="regPassword">Password:</label>
+                        <input type="password" id="regPassword" required>
+                        <button type="submit">Register</button>
+                    </form>
+                </div>
+                <div>
+                    <h3>Login</h3>
+                    <form id="loginForm">
+                        <label for="loginEmail">Email:</label>
+                        <input type="email" id="loginEmail" required>
+                        <label for="loginPassword">Password:</label>
+                        <input type="password" id="loginPassword" required>
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+                <div id="userSection" style="display: none;">
+                    <h3>User Information</h3>
+                    <p><strong>Name:</strong><span id="userName"></span></p>
+                    <p><strong>Email:</strong><span id="userEmail"></span></p>
+                    <h3>Edit User Information</h3>
+                    <form id="editForm">
+                        <label for="editName">Name:</label>
+                        <input type="text" id="editName" required>
+                        <label for="editEmail">Email:</label>
+                        <input type="email" id="editEmail" required>
+                        <label for="editPassword">Password:</label>
+                        <input type="password" id="editPassword" required>
+                        <button type="submit">Update</button>
+                        <button type="reset">Cancel</button>
+                    </form>
+                    <button id="logoutButton">Logout</button>
+                </div>
+                <div id="message" style="display: none;"></div>
+            </div>
+            <script src="js/script.js"></script>
+        </body>
+    </html>
